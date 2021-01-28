@@ -1,5 +1,5 @@
 #include <iostream>
-#include "distro.c"
+#include "distro.cc"
 
 using namespace std;
 
