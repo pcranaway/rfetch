@@ -3,22 +3,23 @@
 
 using namespace std;
 
+void print(string key, string value) {
+    cout << "\e[38;5;105m" << key << ": \e[0m" << value << "\n";
+}
+
 int main() {
     Distro distro = detectDistro();
 
-    /* distro */
     string name = getDistroName(distro);
-    cout << "\e[38;5;105mdistro: \e[0m" << name << "\e[0m\n";
+    print("distro", name);
 
-    /* packages */
     int packages = countPackages(distro);
-    cout << "\e[38;5;105mpackages: \e[0m" << packages << "\e[0m\n";
-  
-    /* uptime */
+    print("packages", to_string(packages));
+
     string uptime = exec("uptime -p");
     replace(uptime, "up ", "");
     replace(uptime, "\n", "");
-    cout << "\e[38;5;105muptime: \e[0m" << uptime << "\e[0m\n";
+    print("uptime", uptime);
 
     return 0;
 }
