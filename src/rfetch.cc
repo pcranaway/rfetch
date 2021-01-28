@@ -11,6 +11,7 @@ int main() {
    
     string uptime = exec("uptime -p");
     replace(uptime, "up ", "");
+    replace(uptime, "\n", "");
     cout << "uptime: " << uptime << "\n";
 
     return 0;
