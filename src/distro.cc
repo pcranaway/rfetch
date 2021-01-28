@@ -2,12 +2,12 @@
 #include <unistd.h>
 
 enum Distro {
-    kDebian,
-    kUbuntu,
-    kArch,
-    kGentoo,
-    kFedora,
-    kVoid
+    DEBIAN,
+    UBUNTU,
+    ARCH,
+    GENTOO,
+    FEDORA,
+    VOID
 };
 
 static bool fileExists(std::string path) {
