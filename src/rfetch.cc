@@ -15,6 +15,10 @@ string getUptime() {
     return uptime;
 }
 
+string getShell() {
+    return exec("echo -n $SHELL");
+}
+
 int main() {
     Distro distro = detectDistro();
 
@@ -26,6 +30,9 @@ int main() {
 
     string uptime = getUptime();
     print("uptime", uptime);
+
+    string shell = getShell();
+    print("shell", shell);
 
     return 0;
 }
