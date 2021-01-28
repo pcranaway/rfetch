@@ -4,6 +4,10 @@
 using namespace std;
 
 int main() {
-    cout << "rfetch!\n";
+    Distro distro = detectDistro();
+
+    cout << "distro: " << getDistroName(distro) << "\n";
+    cout << "packages: " << countPackages(distro) << "\n";
+
     return 0;
 }
