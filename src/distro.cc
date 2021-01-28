@@ -7,6 +7,7 @@
 #include <unistd.h>
 
 enum Distro {
+    LINUX,
     DEBIAN,
     UBUNTU,
     ARCH,
@@ -40,6 +41,8 @@ static Distro detectDistro() {
     if(fileExists("/usr/bin/emerge")) return GENTOO;
     if(fileExists("/usr/bin/dnf")) return FEDORA;
     if(fileExists("/usr/bin/xbps-install")) return VOID;
+
+    return LINUX;
 }
 
 static int countPackages(Distro distro) {
@@ -63,6 +66,10 @@ static int countPackages(Distro distro) {
 
     if(distro == VOID) {
         command =  "xbps-query -l";
+    }
+
+    if(distro == LINUX) {
+        command = "ls /usr/bin";
     }
 
     command += " | wc -l";
