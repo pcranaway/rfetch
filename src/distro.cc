@@ -24,6 +24,8 @@ static std::string getDistroName(Distro distro) {
     if(distro == GENTOO) return "Gentoo";
     if(distro == FEDORA) return "Fedora";
     if(distro == VOID) return "Void Linux";
+
+    return "Unknown";
 }
 
 static bool fileExists(std::string path) {
