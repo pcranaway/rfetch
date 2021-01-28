@@ -16,6 +16,16 @@ enum Distro {
     VOID
 };
 
+static std::string getDistroName(Distro distro) {
+    if(distro == LINUX) return "Linux';
+    if(distro == DEBIAN) return "Debian";
+    if(distro == UBUNTU) return "Ubuntu";
+    if(distro == ARCH) return "Arch Linux";
+    if(distro == GENTOO) return "Gentoo";
+    if(distro == FEDORA) return "Fedora";
+    if(distro == VOID) return "Void Linux";
+}
+
 static bool fileExists(std::string path) {
     return access(path.c_str(), 0) == 0;
 }
