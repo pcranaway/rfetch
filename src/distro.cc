@@ -65,7 +65,7 @@ static int countPackages(Distro distro) {
     }
 
     if(distro == VOID) {
-        command =  "xbps-query -l";
+        command = "xbps-query -l";
     }
 
     if(distro == LINUX) {
