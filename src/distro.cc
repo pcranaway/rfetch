@@ -41,3 +41,32 @@ static Distro detectDistro() {
     if(fileExists("/usr/bin/dnf")) return FEDORA;
     if(fileExists("/usr/bin/xbps-install")) return VOID;
 }
+
+static int countPackages(Distro distro) {
+    std::string command;
+
+    if(distro == DEBIAN || distro == UBUNTU) {
+        command = "dpkg-query -f '.\n' -W";
+    }
+
+    if(distro == ARCH) {
+        command = "pacman -Qq";
+    }
+
+    if(distro == GENTOO) {
+        command = "equery list \"*\"";
+    }
+
+    if(distro == FEDORA) {
+        command = "rpm -qa";
+    }
+
+    if(distro == VOID) {
+        command =  "xbps-query -l";
+    }
+
+    command += " | wc -l";
+
+    std::string output = exec(command.c_str());
+    return atoi(output.c_str());
+}
