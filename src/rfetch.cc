@@ -6,9 +6,15 @@ using namespace std;
 int main() {
     Distro distro = detectDistro();
 
-    cout << "\e[38;5;105mdistro: \e[0m" << getDistroName(distro) << "\e[0m\n";
-    cout << "\e[38;5;105mpackages: \e[0m" << countPackages(distro) << "\e[0m\n";
-   
+    /* distro */
+    string name = getDistroName(distro);
+    cout << "\e[38;5;105mdistro: \e[0m" << name << "\e[0m\n";
+
+    /* packages */
+    int packages = countPackages(distro);
+    cout << "\e[38;5;105mpackages: \e[0m" << packages << "\e[0m\n";
+  
+    /* uptime */
     string uptime = exec("uptime -p");
     replace(uptime, "up ", "");
     replace(uptime, "\n", "");
