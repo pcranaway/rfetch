@@ -17,7 +17,7 @@ enum Distro {
 };
 
 static std::string getDistroName(Distro distro) {
-    if(distro == LINUX) return "Linux';
+    if(distro == LINUX) return "Linux";
     if(distro == DEBIAN) return "Debian";
     if(distro == UBUNTU) return "Ubuntu";
     if(distro == ARCH) return "Arch Linux";
