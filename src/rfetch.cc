@@ -8,6 +8,7 @@ int main() {
 
     cout << "distro: " << getDistroName(distro) << "\n";
     cout << "packages: " << countPackages(distro) << "\n";
+    cout << "uptime: " << exec("uptime -p") << "\n";
 
     return 0;
 }
